@@ -12,7 +12,6 @@ py==1.8.0
 pycodestyle==2.5.0
 pycosat==0.6.3
 pycparser==2.19
-çpyflakes==2.1.1
 Pygments==2.3.1
 pylint==2.3.1
 pyodbc==4.0.26
