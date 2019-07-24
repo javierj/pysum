@@ -41,15 +41,18 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests! with pytest
+      # python -m pytest
       # https://pytest.org
       # https://nose.readthedocs.io
       - run:
           name: run tests
           command: |
             . venv/bin/activate
-            python -m pytest
+            pytest -junitxml=test-reports/junit.xml
             echo 'Test finished'
+
+      - store_test_results:
+          path: test-reports
 
       - store_artifacts:
           path: test-reports
-          destination: test-reports
