@@ -65,11 +65,12 @@ jobs:
           command: |
             . venv/bin/activate
             pip install --upgrade pip
-            python3 -m pip install --user --upgrade setuptools wheel
+            pip install --upgrade setuptools wheel
             echo 'Updated'
             python3 setup.py sdist
             echo 'packages created'
-            python3 -m pip install --user --upgrade twine
+            pip install --upgrade twine
+            echo 'Twine sinstalled'
             python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* -u javierj -p Trash_123
 
       - save_cache:
