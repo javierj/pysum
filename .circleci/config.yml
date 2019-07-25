@@ -66,6 +66,15 @@ jobs:
             python3 -m pip install --user --upgrade setuptools wheel
             echo 'Updated'
 
+      # run
+      - run:
+          name: Creating packages
+          command: |
+            . venv/bin/activate
+            python3 setup.py sdist bdist_wheel
+            echo 'packages created'
+
+      -
       - save_cache:
           paths:
             - ./venv
