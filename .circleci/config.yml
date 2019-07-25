@@ -56,3 +56,17 @@ jobs:
 
       - store_artifacts:
           path: test-reports
+
+      #
+      # Install tools for packaing
+      - run:
+          name: install pip for packaing
+          command: |
+            . venv/bin/activate
+            python3 -m pip install --user --upgrade setuptools wheel
+            echo 'Updated'
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
