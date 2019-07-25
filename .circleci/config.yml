@@ -63,6 +63,7 @@ jobs:
           name: install pip for packaing
           command: |
             . venv/bin/activate
+            pip install --upgrade pip
             python3 -m pip install --user --upgrade setuptools wheel
             echo 'Updated'
             python3 setup.py sdist bdist_wheel
