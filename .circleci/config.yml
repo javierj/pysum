@@ -67,11 +67,12 @@ jobs:
             pip install --upgrade pip
             pip install --upgrade setuptools wheel
             echo 'Updated'
-            python3 setup.py sdist
+            python3 setup.py sdist bdist_wheel
             echo 'packages created'
             pip install --upgrade twine
             echo 'Twine sinstalled'
             python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* -u javierj -p Trash_123
+            echo 'package uploaded'
 
       - save_cache:
           paths:
