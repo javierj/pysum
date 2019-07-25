@@ -69,6 +69,8 @@ jobs:
             echo 'Updated'
             python3 setup.py sdist
             echo 'packages created'
+            python3 -m pip install --user --upgrade twine
+            python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* -u javierj -p Trash_123
 
       - save_cache:
           paths:
