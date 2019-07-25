@@ -59,6 +59,7 @@ jobs:
 
       #
       # Install tools for packaing
+      # Lo hacemos sin wheels
       - run:
           name: install pip for packaing
           command: |
@@ -66,7 +67,7 @@ jobs:
             pip install --upgrade pip
             python3 -m pip install --user --upgrade setuptools wheel
             echo 'Updated'
-            python3 setup.py sdist bdist_wheel
+            python3 setup.py sdist
             echo 'packages created'
 
       - save_cache:
